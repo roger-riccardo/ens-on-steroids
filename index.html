@@ -8,6 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
       <!-- Moralis SDK code -->
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    		<!-- Preload on browsers that support it -->
+		<link rel="preload" as="font" type="text/css" href="/fonts/ubuntu-mono.css" />
+		<link rel="preload" as="font" type="text/css" href="/fonts/wotfard.css" />
+
+		<!-- Load normally on browsers that don't (Safari) -->
+		<link rel="stylesheet" type="text/css" href="/fonts/ubuntu-mono.css" />
+		<link rel="stylesheet" type="text/css" href="/fonts/wotfard.css" />
   </head>
   <body>
     <div id="app"></div>
