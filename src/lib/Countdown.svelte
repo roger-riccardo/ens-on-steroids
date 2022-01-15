@@ -2,7 +2,7 @@
   import axios from "axios";
   import { intervalToDuration } from "date-fns";
   import { onMount } from "svelte";
-  import About from './about.svelte'
+  import About from "./aboutCountdown.svelte";
 
   let items;
 
@@ -65,102 +65,100 @@
 
 <div>
   <About />
-
-<section id="about">
-  <div class="overflow-x-auto">
-    <table class="table w-full table-zebra">
-      <thead>
-        <tr>
-          <th />
-          <th>ENS Domain</th>
-          <th>Countdown</th>
-          <th>Expiration Date</th>
-          <th>Useful Links</th>
-        </tr>
-      </thead>
-      <tbody>
-        {#await getExpiringENS()}
-          <p>Loading...</p>
-        {:then expiringENS}
-          {#each items as item, index}
-            <tr>
-              <th>{index + 1}</th>
-              <td>{item.domain.name}</td>
-              <td>
-                <div
-                  class="grid grid-flow-col gap-5 place-items-end auto-cols-max"
-                >
-                  <span class="font-mono text-2xl countdown">
-                    <span style="--value:{item.countdown.hours || 0};" />h
-                    <span style="--value:{item.countdown.minutes || 0};" />m
-                    <span style="--value:{item.countdown.seconds || 0};" />s
-                  </span>
-                </div>
-              </td>
-              <td>{new Date(item.expiryDate * 1000).toLocaleString()}</td>
-              <td>
-                <a
-                  class="link"
-                  href="https://app.ens.domains/name/{item.domain.name}/details"
-                  >ENS Domains</a
-                >
-                <a
-                  class="link"
-                  href="https://opensea.io/collection/ens?search[query]={item
-                    .domain.name}">Opensea</a
-                >
-              </td>
-            </tr>
-          {/each}
-        {/await}
-      </tbody>
-    </table>
-  </div>
-</section>
+  <section id="about">
+    <div class="overflow-x-auto">
+      <table class="table w-full table-zebra">
+        <thead>
+          <tr>
+            <th />
+            <th>ENS Domain</th>
+            <th>Countdown</th>
+            <th>Expiration Date</th>
+            <th>Useful Links</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#await getExpiringENS()}
+            <p>Loading...</p>
+          {:then expiringENS}
+            {#each items as item, index}
+              <tr>
+                <th>{index + 1}</th>
+                <td>{item.domain.name}</td>
+                <td>
+                  <div
+                    class="grid grid-flow-col gap-5 place-items-end auto-cols-max"
+                  >
+                    <span class="font-mono text-2xl countdown">
+                      <span style="--value:{item.countdown.hours || 0};" />h
+                      <span style="--value:{item.countdown.minutes || 0};" />m
+                      <span style="--value:{item.countdown.seconds || 0};" />s
+                    </span>
+                  </div>
+                </td>
+                <td>{new Date(item.expiryDate * 1000).toLocaleString()}</td>
+                <td>
+                  <a
+                    class="link"
+                    href="https://app.ens.domains/name/{item.domain
+                      .name}/details">ENS Domains</a
+                  >
+                  <a
+                    class="link"
+                    href="https://opensea.io/collection/ens?search[query]={item
+                      .domain.name}">Opensea</a
+                  >
+                </td>
+              </tr>
+            {/each}
+          {/await}
+        </tbody>
+      </table>
+    </div>
+  </section>
 </div>
 
 <style lang="scss">
-	@import './scss/breakpoints.scss';
+  @import "./scss/breakpoints.scss";
 
-	#about {
-		position: relative;
-		display: flex;
-		grid-template-columns: 500px 250px;
-		align-items: center;
-		justify-content: center;
-		gap: 15px;
-		padding: 80px 0;
+  #about {
+    position: relative;
+    display: flex;
+    grid-template-columns: 500px 250px;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 80px 0;
 
-		@include for-phone-only {
-			grid-template-columns: 1fr;
-			justify-items: center;
-		}
+    @include for-phone-only {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
 
-		.info {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			h2 {
-				@include for-phone-only {
-					text-align: center;
-				}
-			}
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h2 {
+        @include for-phone-only {
+          text-align: center;
+        }
+      }
 
-			p {
-				@include for-phone-only {
-					text-align: justify;
-				}
-			}
-		}
-	}
+      p {
+        @include for-phone-only {
+          text-align: justify;
+        }
+      }
+    }
+  }
 
-	@keyframes spin {
-		from {
-			transform: rotate(0turn);
-		}
-		to {
-			transform: rotate(1turn);
-		}
-	}
+  @keyframes spin {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
 </style>
-

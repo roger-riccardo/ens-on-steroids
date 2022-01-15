@@ -2,7 +2,7 @@
   import axios from "axios";
   import { intervalToDuration } from "date-fns";
   import { onMount } from "svelte";
-
+  import About from './aboutExpired.svelte'
   let items;
 
   async function getExpiringENS() {
@@ -62,6 +62,8 @@
   });
 </script>
 
+<div>
+  <About />
 <section id="about">
   <div class="overflow-x-auto">
     <table class="table w-full table-zebra">
@@ -113,3 +115,48 @@
     </table>
   </div>
 </section>
+</div>
+<style lang="scss">
+  @import "./scss/breakpoints.scss";
+
+  #about {
+    position: relative;
+    display: flex;
+    grid-template-columns: 500px 250px;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 80px 0;
+
+    @include for-phone-only {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h2 {
+        @include for-phone-only {
+          text-align: center;
+        }
+      }
+
+      p {
+        @include for-phone-only {
+          text-align: justify;
+        }
+      }
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+</style>
