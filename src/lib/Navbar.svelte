@@ -21,7 +21,7 @@
 </script>
 
 <div id="navbar"
-  class="sticky top-0 z-50 navbar col-span-1 shadow-lg md:col-span-2 xl:col-span-3 bg-neutral-focus text-neutral-content rounded-box mb-lg mx-md"
+class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box"
 >
   <div class="px-2 mx-2 navbar-start">
     <button class="btn btn-square btn-ghost">
@@ -83,12 +83,18 @@
   <Route path="/hall" component={HallOfFame} />
 </div>
 
-<style type="text/scss">
-#navbar {
+<style lang="scss">
+	@import './scss/breakpoints.scss';
+
+	#navbar {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		gap: 15px;
 		position: relative;
+
+		@include for-phone-only {
+			padding: 40px 0 50px;
+		}
 	}
 </style>

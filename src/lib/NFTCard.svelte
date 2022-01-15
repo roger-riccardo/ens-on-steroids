@@ -27,8 +27,9 @@
 </script>
 
 <div class="card text-center shadow-2xl">
-  <figure class="px-10 pt-10">
+  <figure class="px-10 pt-10 h-402 w-1">
     <img
+     id="image"
       src="https://www.pngkit.com/png/full/152-1526200_ens-logo-ethereum-name-service.png"
       class="rounded-xl"
     />
@@ -50,3 +51,15 @@
     {/await}
   </div>
 </div>
+
+<style>
+  #image {
+    height: 100px;
+    width: auto;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+    
+  }
+
+</style>

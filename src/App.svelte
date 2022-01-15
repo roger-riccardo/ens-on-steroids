@@ -35,7 +35,7 @@
 </script>
 
 <Router>
-  <div class="p-4 lg:p-10">
+  <div class="lg:p-10">
     {#if window.ethereum && !metamaskConnected}
       <p>Please connect to Metamask</p>
       <button on:click={onClickConnectWallet}> Connect wallet</button>
