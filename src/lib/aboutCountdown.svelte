@@ -23,8 +23,8 @@
 		grid-template-columns: 500px 250px;
 		align-items: center;
 		justify-content: center;
-		gap: 15px;
-		padding: 80px 0;
+		gap: 10px;
+		padding: 80px 80px 40px 80px;
 
 		@include for-phone-only {
 			grid-template-columns: 1fr;
