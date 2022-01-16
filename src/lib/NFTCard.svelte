@@ -26,7 +26,7 @@
   };
 </script>
 
-<div class="card text-center shadow-2xl">
+<div id="nft-card" class="card text-center shadow-2xl">
   <figure class="px-10 pt-10 h-402 w-1">
     <img
      id="image"
@@ -53,6 +53,10 @@
 </div>
 
 <style>
+  #nft-card {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
   #image {
     height: 100px;
     width: auto;
