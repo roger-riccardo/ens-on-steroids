@@ -99,14 +99,26 @@
                 <td>{new Date(item.expiryDate * 1000).toLocaleString()}</td>
                 <td>
                   <a
+                  id="link"
                     class="link"
                     href="https://app.ens.domains/name/{item.domain
-                      .name}/details">ENS Domains</a
+                      .name}/details">
+                         <img
+                         id="image"
+                          src="https://www.pngkit.com/png/full/152-1526200_ens-logo-ethereum-name-service.png"
+                          class="rounded-xl"
+                        />
+                      </a
                   >
                   <a
+                  id="link"
                     class="link"
                     href="https://opensea.io/collection/ens?search[query]={item
-                      .domain.name}">Opensea</a
+                      .domain.name}"> <img
+                         id="image"
+                          src="https://user-images.githubusercontent.com/35243/140804979-0ef11e0d-d527-43c1-93cb-0f48d1aec542.png"
+                          class="rounded-xl"
+                        /></a
                   >
                 </td>
               </tr>
@@ -161,4 +173,16 @@
       transform: rotate(1turn);
     }
   }
+
+  #image {
+    height: 37px;
+    width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline
+  }
+  #link {
+    display: inline;
+}
+
 </style>
